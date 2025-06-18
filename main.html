@@ -1,16 +1,77 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Search</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #7b5cff, #6e65e7);
+      font-family: Arial, sans-serif;
+    }
 
+    .search {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 10px;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+      width: 50px;
+      overflow: hidden;
+    }
+
+    .search.active {
+      width: 200px;
+    }
+
+    .input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 16px;
+      padding: 5px;
+      display: none;
+    }
+
+    .search.active .input {
+      display: inline-block;
+    }
+
+    .btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .btn:focus {
+      outline: none;
+    }
+  </style>
+</head>
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <div class="search" id="searchBox">
+    <input type="text" class="input" placeholder="Search..." id="searchInput">
+    <button class="btn" id="searchBtn">&#128269;</button>
+  </div>
+
+  <script>
+    const search = document.getElementById('searchBox');
+    const btn = document.getElementById('searchBtn');
+    const input = document.getElementById('searchInput');
+
+    btn.addEventListener('click', () => {
+      search.classList.add('active');
+      input.focus();
+    });
+  </script>
 
 </body>
-
 </html>
